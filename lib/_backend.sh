@@ -45,14 +45,14 @@ backend_set_env() {
   sleep 2
 
   # ensure idempotency
-  backend_url=$(echo "${backend_url/https:\/\/}")
+  backend_url=$(echo "${backend_url/http:\/\/}")
   backend_url=${backend_url%%/*}
-  backend_url=https://$backend_url
+  backend_url=http://$backend_url
 
   # ensure idempotency
-  frontend_url=$(echo "${frontend_url/https:\/\/}")
+  frontend_url=$(echo "${frontend_url/http:\/\/}")
   frontend_url=${frontend_url%%/*}
-  frontend_url=https://$frontend_url
+  frontend_url=http://$frontend_url
 
 sudo su - owenzap << EOF
   cat <<[-]EOF > /home/owenzap/${instancia_add}/backend/.env
@@ -228,7 +228,7 @@ backend_nginx_setup() {
 
   sleep 2
 
-  backend_hostname=$(echo "${backend_url/https:\/\/}")
+  backend_hostname=$(echo "${backend_url/http:\/\/}")
 
 sudo su - root << EOF
 cat > /etc/nginx/sites-available/${instancia_add}-backend << 'END'
