@@ -148,7 +148,7 @@ frontend_nginx_setup() {
 
   sleep 2
 
-  frontend_hostname=$(echo "${frontend_url/https:\/\/}")
+  frontend_hostname=$(echo "${frontend_url/http:\/\/}")
 
 sudo su - root << EOF
 
