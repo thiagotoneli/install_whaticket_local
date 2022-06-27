@@ -84,9 +84,9 @@ frontend_set_env() {
   sleep 2
 
   # ensure idempotency
-  backend_url=$(echo "${backend_url/https:\/\/}")
+  backend_url=$(echo "${backend_url/http:\/\/}")
   backend_url=${backend_url%%/*}
-  backend_url=https://$backend_url
+  backend_url=http://$backend_url
 
 sudo su - owenzap << EOF
   cat <<[-]EOF > /home/owenzap/${instancia_add}/frontend/.env
