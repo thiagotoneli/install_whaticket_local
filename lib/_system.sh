@@ -320,8 +320,8 @@ system_certbot_setup() {
 
   sleep 2
 
-  backend_domain=$(echo "${backend_url/https:\/\/}")
-  frontend_domain=$(echo "${frontend_url/https:\/\/}")
+  backend_domain=$(echo "${backend_url/http:\/\/}")
+  frontend_domain=$(echo "${frontend_url/http:\/\/}")
 
   sudo su - root <<EOF
   certbot -m $deploy_email \
